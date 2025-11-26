@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Resume — Sarveshwaran</title>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- JavaScript -->
+  <script src="script.js" defer></script>
+
+  <!-- Extra styling only for resume page -->
+  <style>
+    .resume-frame {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .resume-frame iframe {
+      width: 80%;
+      max-width: 1000px;
+      height: 720px;
+      border-radius: 12px;
+      border: none;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 25px rgba(106,203,255,0.3);
+    }
+    @media (max-width: 700px){
+      .resume-frame iframe {
+        width: 95%;
+        height: 520px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>My Resume</h1>
+  </header>
+
+  <div class="resume-frame">
+
+    <!-- ⭐ Local Resume PDF Viewer ⭐ -->
+    <iframe 
+       src="Sarveshwaran_S_Resume.pdf"
+       title="Sarveshwaran Resume Viewer">
+    </iframe>
+
+    <!-- ⭐ Local Download Button ⭐ -->
+    <div class="hero-buttons" style="margin-top: 25px;">
+      <a class="btn" href="Sarveshwaran_S_Resume.pdf" download>Download Resume</a>
+      <button class="btn" onclick="goTo('index.html')">Back to Home</button>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2025 Sarveshwaran</p>
+  </footer>
+
+</body>
+</html>

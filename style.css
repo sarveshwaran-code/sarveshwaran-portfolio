@@ -1,0 +1,277 @@
+/* ---------------- Reset & Base ---------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  transition: background 1s ease;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* ---------------- Page-specific Backgrounds ---------------- */
+body.about {
+  background: radial-gradient(circle at top, #1a1f2f, #0b0e1a 60%);
+}
+
+body.education {
+  background: radial-gradient(circle at top, #2f1a2f, #100a1a 60%);
+}
+
+body.projects {
+  background: radial-gradient(circle at top, #1a2f2f, #0a1a1a 60%);
+}
+
+body.resume {
+  background: radial-gradient(circle at top, #2f2f1a, #1a1a0a 60%);
+}
+
+/* ---------------- Floating Stars ---------------- */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('https://i.imgur.com/7Ufp5gT.png');
+  background-size: cover;
+  opacity: 0.12;
+  pointer-events: none;
+  animation: floatStars 90s linear infinite;
+}
+
+body.about::before { filter: hue-rotate(0deg); }
+body.education::before { filter: hue-rotate(60deg); }
+body.projects::before { filter: hue-rotate(120deg); }
+body.resume::before { filter: hue-rotate(180deg); }
+
+@keyframes floatStars {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-2000px); }
+}
+
+/* ---------------- Header ---------------- */
+header {
+  text-align: center;
+  padding: 50px 0;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 30px rgba(0, 200, 255, 0.08);
+}
+
+header h1 {
+  font-size: 3.8rem;
+  color: #6acbff;
+  letter-spacing: 3px;
+  text-shadow:
+    0 0 8px #6acbff,
+    0 0 15px #ff3ca6,
+    0 0 25px #00ffea,
+    0 0 35px #6acbff;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+header .small {
+  font-size: 0.9rem;
+  margin-left: 8px;
+  color: #ccefff;
+  font-weight:600;
+}
+
+/* ---------------- Hero Section ---------------- */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  animation: fadeInUp 1.2s ease-in-out;
+}
+
+.highlight {
+  color: #6acbff;
+  text-shadow: 0 0 10px #6acbff;
+}
+
+.intro {
+  font-size: 1.5rem;
+  opacity: 0.95;
+  max-width: 750px;
+  margin: 15px auto;
+  line-height: 1.8;
+}
+
+/* ---------------- Neon Buttons ---------------- */
+.btn {
+  position: relative;
+  overflow: hidden;
+  padding: 12px 26px;
+  font-size: 1.2rem;
+  background: linear-gradient(180deg, rgba(106,203,255,0.14), rgba(106,203,255,0.06));
+  border: 1.6px solid rgba(106,203,255,0.85);
+  color: #cff3ff;
+  font-weight: 700;
+  border-radius: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.28s;
+  box-shadow: 0 6px 20px rgba(0, 200, 255, 0.12);
+  z-index: 1;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: linear-gradient(60deg, #6acbff, #ff3ca6, #00ffea, #6acbff);
+  animation: rotateGradient 4s linear infinite;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+.btn span { position: relative; z-index: 1; }
+
+.btn:hover {
+  background: #6acbff;
+  color: #001;
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 10px 40px rgba(106,203,255,0.35);
+}
+
+@keyframes rotateGradient {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.hero-buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+/* ---------------- Section Titles ---------------- */
+section h2 {
+  font-size: 2.8rem;
+  border-left: 4px solid #6acbff;
+  padding-left: 12px;
+  margin-bottom: 30px;
+  animation: neonPulse 2s infinite alternate;
+  color: #6acbff;
+  text-shadow: 0 0 12px #6acbff;
+}
+
+/* ---------------- Section Content (black) ---------------- */
+section *:not(h1):not(h2) {
+  color: #000000; /* all normal text black */
+  font-size: 1.15rem;
+  line-height: 1.7;
+  opacity: 0.95;
+}
+
+/* ---------------- Sections Layout ---------------- */
+section { padding: 70px 40px; }
+
+/* ---------------- Project Cards ---------------- */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 25px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 200, 255, 0.08);
+  transition: 0.4s, box-shadow 0.6s;
+  font-size: 1.15rem;
+  color: #000000; /* black inside cards too */
+}
+
+.card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 0 40px #6acbff, 0 0 60px #00fff6, 0 0 80px #ff3ca6;
+  border-color: #6acbff;
+}
+
+.card h3 {
+  color: #6acbff;
+  margin-bottom: 12px;
+  text-shadow: 0 0 8px #6acbff;
+}
+
+.card ul {
+  margin-top: 10px;
+  padding-left: 20px;
+  opacity: 0.95;
+}
+
+/* ---------------- Education List ---------------- */
+.education-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.education-list li {
+  background: rgba(255,255,255,0.02);
+  margin-bottom: 12px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  border-left: 4px solid rgba(106,203,255,0.18);
+  font-size: 1.15rem;
+  color: #000000;
+}
+
+/* ---------------- Contact ---------------- */
+#contact a {
+  color: #6acbff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+#contact a:hover {
+  color: white;
+  text-shadow: 0 0 10px #6acbff;
+}
+
+/* ---------------- Footer ---------------- */
+footer {
+  text-align: center;
+  padding: 25px 0;
+  background: rgba(255,255,255,0.03);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(8px);
+  color: #6acbff;
+  font-weight: 600;
+  text-shadow: 0 0 8px #6acbff;
+}
+
+/* ---------------- Animations ---------------- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+@keyframes neonPulse {
+  from { text-shadow: 0 0 10px #6acbff; }
+  to { text-shadow: 0 0 25px #6acbff; }
+}
+
+/* ---------------- Mobile Responsive ---------------- */
+@media (max-width: 600px) {
+  header h1 { font-size: 2.8rem; }
+  .intro { font-size: 1.2rem; }
+  section h2 { font-size: 2rem; }
+  .btn { font-size: 1.1rem; }
+  section *:not(h1):not(h2) { font-size: 1rem; }
+}
